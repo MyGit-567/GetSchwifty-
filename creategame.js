@@ -93,6 +93,13 @@ function moveThisTile(tableRow, tableColumn) {
         startNewGame();
     }
 }
+/*
+var allresult = [];
+function saveresults(moves) {
+    
+    allresult.push(moves);
+}*/
+
 
 function checkIfMoveable(rowCoordinate, columnCoordinate, direction) {
     // The following variables an if else statements
@@ -125,6 +132,72 @@ function checkIfMoveable(rowCoordinate, columnCoordinate, direction) {
 }
 
 function checkIfWinner() {
+    if (rows % 2 == 1) {
+        odd();
+        if (odd) {
+            console.log("you win!")
+        }
+    } else {
+        even();
+        if (even) {
+            console.log("you win!")
+        }
+    }
+}
+
+
+function odd() {
+    {
+        var count = 1;
+        for (var i = 0; i < rows; i++) {
+            for (var j = 0; j < columns; j++) {
+                if (arrayForBoard[i][j] < arrayForBoard[j]) {
+                    count += 1;
+                }
+            }
+        }
+        if (count % 2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+function even() {
+    {
+        var count = 1;
+        for (var i = 0; i < rows; i++) {
+            for (var j = 0; j < columns; j++) {
+                if (arrayForBoard[i][j] < arrayForBoard[j]) {
+                    count += 1;
+                }
+            }
+        }
+        var num = whereblank();
+        count += num;
+        if (count % 2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+function whereblank() {
+    for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < columns; j++) {
+            if (arrayForBoard[i][j] == 0) {
+                return rows;
+            }
+
+        }
+    }
+}
+
+
+/*
+function checkIfWinner() {
     var count = 1;
     for (var i = 0; i < rows; i++) {
         for (var j = 0; j < columns; j++) {
@@ -138,7 +211,7 @@ function checkIfWinner() {
     }
 
     return true;
-}
+}*/
 
 function incrementMoves() {
     moves++;

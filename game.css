@@ -8,6 +8,10 @@
     font-family: Arial;
 }
 
+body {
+    background-color: #CCCCCC;
+}
+
 #moves {
     border: 2px solid #222;
     background: -webkit-gradient(linear, top, bottom, color-stop(15%, white), color-stop(80%, darkgray), );
@@ -30,10 +34,10 @@
     width: 90px;
     border: 2px solid #222;
     text-align: center;
-    border-top: 6px solid #CCCCCC;
-    border-left: 6px solid #CCCCCC;
-    border-right: 6px solid #787878;
-    border-bottom: 6px solid #787878;
+    border-top: 6px solid #553636;
+    border-left: 6px solid #999999;
+    border-right: 6px solid #999999;
+    border-bottom: 6px solid #999999;
     background: #fff;
     cursor: pointer;
 }
