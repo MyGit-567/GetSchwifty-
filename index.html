@@ -4,38 +4,37 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slider The Puzzle Game</title>
+
     <link rel="stylesheet" type="text/css" href="game.css">
 </head>
 
 <body>
-    <div id="wrapper">
-        <div id="img-container">
-            <div id="img-container-title">Choose Image For Puzzle</div>
-            <span class="imageselect"><img src="flower.jpg" height="150px" width="150px" class="imgsel" name="flower"></span>
-            <span class="imageselect"><img src="dog.jpg" height="150p" width="150px" class="imgsel" name="dog"></span>
-            <span class="imageselect"><img src="earth.jpg" height="150px" width="150px" class="imgsel" name="earth"></span>
-            <span class="imageselect"><img src="airplane.jpg" height="150px" width="150px" class="imgsel" name="airplane"></span>
-        </div>
-    </div>
     <div id="heading_Container">
-        <div id="changeimage"></div>
         <div id="head">Get Schwifty</div>
-    </div>
-    <div id="frame"></div>
-    <div id="game">
-        <li class="tile" id="1"><span class="number">1</span></li>
-        <li class="tile" id="2"><span class="number">2</span></li>
-        <li class="tile" id="3"><span class="number">3</span></li>
-        <li class="tile" id="4"><span class="number">4</span></li>
-        <li class="tile" id="5"><span class="number">5</span></li>
-        <li class="tile" id="6"><span class="number">6</span></li>
-        <li class="tile" id="7"><span class="number">7</span></li>
-        <li class="tile" id="8"><span class="number">8</span></li>
-        <li class="tile" id="blank"><span></span></li>
-    </div>
-    <div id="help"><input type="checkbox" name="enablehelp" onchange="shownumbers();">Start Game</div>
-    <div id="help"><input type="checkbox" name="enablehelp" onchange="setPuzzleImage();">Start With Game</div>
-    <script src="script.js"></script>
+        <div id="wrapper">
+            <div id="img-container">
+                <br>
+                <span class="imageselect"><img src="flower.jpg" height="150px" width="150px" class="imgsel" name="flower"></span>
+                <span class="imageselect"><img src="dog.jpg" height="150p" width="150px" class="imgsel" name="dog"></span>
+                <span class="imageselect"><img src="earth.jpg" height="150px" width="150px" class="imgsel" name="earth"></span>
+                <span class="imageselect"><img src="airplane.jpg" height="150px" width="150px" class="imgsel" name="airplane"></span>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <table id="table"></table>
+        <div id="help"><input type="checkbox" name="enablehelp" onchange="setPuzzleImage();">Game With Image</div>
+        <title>Create your game:</title>
+        <label>Rows <input type="text" name="rows" id="rows" value="4" size="2"></label>
+        <label>Columns <input type="text" name="columns" id="columns" value="4" size="2"></label>
+        <input type="button" id="newGame" value="Start New Game">
+        <br>
+        <br> Number Of Moves: <span id="moves">0</span>
+        <script src="script.js"></script>
+        <script src="creategame.js"></script>
 </body>
 
 </html>
