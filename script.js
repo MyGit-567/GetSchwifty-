@@ -1,7 +1,8 @@
 var game = new Object();
 game.tiles = Array.from(document.getElementsByClassName('tile')); //is our board
-game.folders = ["pug", "dog", "begema", "earth"]; //while randoming pictures
+game.folders = ["airplane", "dog", "flower", "earth"]; //while randoming pictures
 game.gameStarted = false;
+
 game.img = {
     1: "1.jpg", //for setting the board up
     2: "2.jpg",
@@ -13,6 +14,7 @@ game.img = {
     8: "8.jpg",
     9: ""
 };
+
 game.blanktile = document.getElementById('blank'); //the blank tile
 game.winCondition = Array.from(document.getElementsByClassName('tile')); //current game condition will be checked against this
 game.helpenabled = false;
@@ -27,19 +29,19 @@ function setPuzzleImage(foldername) { //adding images to every tile in the game
 
         var slectFolder = Math.floor((Math.random() * 4));
         var folder = game.folders[slectFolder];
-        game.frame.style.backgroundImage = "url('" + "resources/pictures/" + folder + "/" + "frame.jpg" + "')"
+        game.frame.style.backgroundImage = (folder + game.img[tileImg])
 
         for (var i = 0; i < game.tiles.length; i++) {
             var tileImg = i + 1;
-            game.tiles[i].style.backgroundImage = "url('" + "resources/pictures/" + folder + "/" + game.img[tileImg] + "')"
+            game.tiles[i].style.backgroundImage = (folder + game.img[tileImg])
         }
 
     } else {
 
-        game.frame.style.backgroundImage = "url('" + "resources/pictures/" + foldername + "/" + "frame.jpg" + "')"
+        game.frame.style.backgroundImage = (folder + game.img[tileImg])
         for (var i = 0; i < game.tiles.length; i++) {
             var tileImg = i + 1;
-            game.tiles[i].style.backgroundImage = "url('" + "resources/pictures/" + foldername + "/" + game.img[tileImg] + "')"
+            game.tiles[i].style.backgroundImage = (folder + game.img[tileImg])
 
         }
 
@@ -395,7 +397,6 @@ function win() {
             setTimeout(function() { alert("You win!"); }, 500);
 
     }
-
 
 }
 
