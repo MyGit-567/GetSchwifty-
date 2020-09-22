@@ -124,71 +124,75 @@ function checkIfMoveable(rowCoordinate, columnCoordinate, direction) {
         if (arrayForBoard[rowCoordinate + rowOffset][columnCoordinate + columnOffset] == 0) {
             arrayForBoard[rowCoordinate + rowOffset][columnCoordinate + columnOffset] = arrayForBoard[rowCoordinate][columnCoordinate];
             arrayForBoard[rowCoordinate][columnCoordinate] = 0;
-            showTable();
+            //A test that can be solved
+            if (checkIfResolve) {
+                showTable();
+            }
+
             return true;
         }
     }
     return false;
 }
 
-function checkIfWinner() {
+function checkIfResolve() {
     if (rows % 2 == 1) {
-        odd();
-        if (odd) {
-            console.log("you win!")
+
+        if (odd()) {
+            return true;
         }
     } else {
-        even();
-        if (even) {
-            console.log("you win!")
+
+        if (even()) {
+            return false;
         }
     }
 }
 
 
 function odd() {
-    {
-        var count = 1;
-        for (var i = 0; i < rows; i++) {
-            for (var j = 0; j < columns; j++) {
-                if (arrayForBoard[i][j] < arrayForBoard[j]) {
-                    count += 1;
-                }
+
+    var count = 1;
+    for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < columns; j++) {
+            if (arrayForBoard[i][j] < arrayForBoard[j]) {
+                count += 1;
             }
         }
-        if (count % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
     }
+    if (count % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 function even() {
-    {
-        var count = 1;
-        for (var i = 0; i < rows; i++) {
-            for (var j = 0; j < columns; j++) {
-                if (arrayForBoard[i][j] < arrayForBoard[j]) {
-                    count += 1;
-                }
+
+    var count = 1;
+    for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < columns; j++) {
+            if (arrayForBoard[i][j] < arrayForBoard[j]) {
+                count += 1;
             }
         }
-        var num = whereblank();
-        count += num;
-        if (count % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
     }
+    var num = whereblank();
+    count += num;
+    if (count % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 function whereblank() {
     for (var i = 0; i < rows; i++) {
         for (var j = 0; j < columns; j++) {
             if (arrayForBoard[i][j] == 0) {
-                return rows;
+                return i;
             }
 
         }
@@ -196,7 +200,7 @@ function whereblank() {
 }
 
 
-/*
+
 function checkIfWinner() {
     var count = 1;
     for (var i = 0; i < rows; i++) {
@@ -210,8 +214,8 @@ function checkIfWinner() {
         }
     }
 
-    return true;
-}*/
+    console.log("you win!")
+}
 
 function incrementMoves() {
     moves++;
