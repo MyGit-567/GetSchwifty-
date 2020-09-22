@@ -48,8 +48,6 @@ function setPuzzleImage(foldername) { //adding images to every tile in the game
 }
 
 
-
-
 function addClickEvent() { //adding click event to each tile
 
     for (var i = 0; i < game.tiles.length - 1; i++) {
@@ -60,9 +58,6 @@ function addClickEvent() { //adding click event to each tile
             win();
 
         });
-
-
-
     }
 
     //reset button
@@ -162,9 +157,6 @@ function shuffle(array) { //shuffle is part of set tiles
     }
 
     return array
-
-
-
 }
 
 function setTiles(gameobj) {
@@ -210,8 +202,6 @@ function setTiles(gameobj) {
 
 
 }
-
-
 
 
 function shiftPuzzle(tile) {
@@ -300,8 +290,6 @@ function moveLeft(tile) {
     //game.tiles = Array.from(game.tiles);
     game.tiles[blank_position] = game.tiles[position]
     game.tiles[position] = game.blanktile;
-
-
 }
 
 function isTop(tile) {
@@ -313,9 +301,6 @@ function isTop(tile) {
         return true;
 
     }
-
-
-
 
 }
 
@@ -384,20 +369,35 @@ function isEqual(currentboard, winboard) {
     return true;
 }
 
+function check() {
+    num = 0;
+    for (var i = 0; i < currentboard.length; i++) {
+        for (var j = 0; j < currentboard.length; j++) {
+            if (i > j) {
+                num += 1;
+                if (num % 2 == 0)
+                    return true;
+                else {
+                    return false;
+                }
+            }
+        }
+    }
+}
+
 
 
 function win() {
     // body...
 
     if (isEqual(game.tiles, game.winCondition)) {
-
-        setTimeout(function() { alert("You win!"); }, 500);
+        if (check(game.tiles))
+            setTimeout(function() { alert("You win!"); }, 500);
 
     }
 
 
 }
-
 
 (function(global) {
     // body...
@@ -405,11 +405,6 @@ function win() {
     setPuzzleImage();
     addClickEvent();
     setTiles(global);
-
-
-
-
-
 }(game));
 
 function shownumbers() {
@@ -419,14 +414,11 @@ function shownumbers() {
         game.helpenabled = false;
         for (var i = 0; i < help.length; i++) {
             help[i].style.display = "none";
-
-
         }
     } else {
         game.helpenabled = true
         for (var i = 0; i < help.length; i++) {
             help[i].style.display = "inline-block";
-
         }
     }
 
