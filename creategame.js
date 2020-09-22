@@ -6,6 +6,7 @@ var textMoves;
 var arrayForBoard;
 
 function start() {
+
     var button = document.getElementById("newGame");
     button.addEventListener("click", startNewGame, false);
     textMoves = document.getElementById("moves");
@@ -58,6 +59,10 @@ function startNewGame() {
             count++;
         }
     }
+    debugger;
+    if (checkIfResolve()) {
+        showTable();
+    }
     showTable();
 }
 
@@ -93,13 +98,6 @@ function moveThisTile(tableRow, tableColumn) {
         startNewGame();
     }
 }
-/*
-var allresult = [];
-function saveresults(moves) {
-    
-    allresult.push(moves);
-}*/
-
 
 function checkIfMoveable(rowCoordinate, columnCoordinate, direction) {
     // The following variables an if else statements
@@ -198,7 +196,6 @@ function whereblank() {
         }
     }
 }
-
 
 
 function checkIfWinner() {
